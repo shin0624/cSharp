@@ -1,37 +1,27 @@
 ﻿using System;
 
-namespace 소수판별코드_연습
+namespace ConsoleApp10
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
-            Console.WriteLine("입력된 숫자의 소수 유무를 판단하는 프로그램입니다.\n소수:1과 자기자신만으로 나누어떨어지는 수");
-
-           int num = Convert.ToInt32(Console.ReadLine());
-
-            for(int i=0; i<=num;i++)
+            for(int i=1; i<=100; i++)
             {
-                if(num==2)
-                {
-                    Console.WriteLine("소수입니다!(2는 유일한 짝수소수)");
-                    break;
-                }
-                if((num%2)==0)
-                {
-                    Console.WriteLine("소수가 아닙니다!");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("소수입니다!");
-                    break;
-                }
+                //((i%3)==0)//->단점:조건이 많아질수록 복잡해질 수 있다.
+                //{
+                   // Console.WriteLine($"3으로 나뉘어 떨어지는 숫자 발견 : {i}");//따옴표 앞에 $를 붙이고 {i}를 입력하면 i자리에 값이 출력
 
+
+                //}
+                if((i%3)!=0)
+                    continue;
+                    Console.WriteLine($"3으로 나뉘어 떨어지는 숫자 발견 : {i}");
+                   //-> MMO개발에서의 활용 예시
+                   //플레이어가 여럿 있는 상황에서 힐러가 아군 팀원의 체력을 회복시키려는 경우
+                   //주변에 있는 모든 유저를 서칭하다가(for문), 아군 팀원이 아닐 경우(if((I%3)!=0) continue해서 아군 팀원 서칭을 반복(for문)
+                
             }
-
-
         }
     }
 }
