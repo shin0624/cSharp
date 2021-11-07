@@ -1,0 +1,27 @@
+using System;
+
+namespace ConsoleApp10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for(int i=1; i<=100; i++)
+            {
+                //((i%3)==0)//->단점:조건이 많아질수록 복잡해질 수 있다.
+                //{
+                   // Console.WriteLine($"3으로 나뉘어 떨어지는 숫자 발견 : {i}");//따옴표 앞에 $를 붙이고 {i}를 입력하면 i자리에 값이 출력
+
+
+                //}
+                if((i%3)!=0)
+                    continue;
+                    Console.WriteLine($"3으로 나뉘어 떨어지는 숫자 발견 : {i}");
+                   //-> MMO개발에서의 활용 예시
+                   //플레이어가 여럿 있는 상황에서 힐러가 아군 팀원의 체력을 회복시키려는 경우
+                   //주변에 있는 모든 유저를 서칭하다가(for문), 아군 팀원이 아닐 경우(if((I%3)!=0) continue해서 아군 팀원 서칭을 반복(for문)
+                
+            }
+        }
+    }
+}
