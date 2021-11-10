@@ -1,26 +1,18 @@
 ﻿using System;
 
-namespace 오버로딩
+namespace 코드의_흐름_연습문제_답
 {
     class Program
-    {//함수(method) 오버로딩 = 함수 이름의 재사용
-        static int Add(int a, int b)//Add1, Add2... 처럼 숫자를 매겨 쓰기보다 Add하나로 돌려가며 쓰고싶을 때 오버로딩을 사용->매개변수 타입(int a, b...)과 갯수가 정확히 일치해선 안됨
-        {
-            Console.WriteLine("Add int 호출");
-            return a + b;
-        }
-        static float Add(float a, float b)
-        {
-            Console.WriteLine("Add float 호출");
-            return a + b; ;
-        }
+    {
         static void Main(string[] args)
         {
-            int ret1 = Program.Add(2, 3);
-
-            float ret2 = Program.Add(2.0f, 3.0f);
-
-           // Console.WriteLine(ret);
+           for (int i=2; i<=9; i++)
+            {
+                for(int j=1; j<=9; j++)
+                {
+                    Console.WriteLine($"{i}*{j}={i*j}");
+                }
+            }
         }
     }
 }
