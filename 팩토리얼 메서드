@@ -1,0 +1,27 @@
+using System;
+
+namespace 코드의_흐름_제어_연습문제_3_팩토리얼_메서드
+{
+    class Program
+    {
+        static int Factorial(int n)//팩토리얼=재귀함수
+        { 
+             int ret = 1;
+             for(int num=1; num<=n; num++)
+             {
+                 ret *= num;
+             }
+             return ret;
+            //-> 5! = 5 * (4!) 이라고 해서 return n * Factorial(n - 1)를 써버리면 stack overflow가 된다(무한대로 호출해버리기때문)
+            // if(n<=1) return 1 을 쓰면 가능
+        }
+        static void Main(string[]args)
+        {
+            //5!=5*4*3*2*1=120
+            //n!=n(n-1)*...*1(n>=1)
+            int ret = Factorial(5);
+            Console.WriteLine(ret);
+
+        }
+    }
+}
