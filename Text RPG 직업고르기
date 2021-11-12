@@ -1,0 +1,55 @@
+using System;
+
+namespace Text_RPG_직업고르기
+{
+    class Program
+    {
+        enum ClassType
+        {
+            None = 0,
+            Knight = 1,
+            Archer = 2,
+            Mage = 3
+        }
+
+        static ClassType ChooseClass()
+        {
+
+            Console.WriteLine("직업을 선택하세요!");
+            Console.WriteLine("[1] 기사\n[2] 궁수\n[3] 법사");
+
+            string input = Console.ReadLine();
+            //if (input == "1" || input == "2" || input == "3")-> enum으로 클래스타입 설정 시 OR문 이용은 적절하지않음 IF나 SWITCH이용
+
+            ClassType choice = ClassType.None;
+            switch (input)
+            {
+                case "1":
+                    choice = ClassType.Knight;
+                    break;
+                case "2":
+                    choice = ClassType.Archer;
+                    break;
+                case "3":
+                    choice = ClassType.Mage;
+                    break;
+            }
+            return choice;
+        }//->함수chooseclass를 위에서 한번에 관리할 수 있게 밖으로 빼주었다.
+            static void Main(string[] args)
+            {
+               //while문 밖에 클래스타입을 선언하는 것과 안에 선언하는 것의 의미적 다름 = 이후에 변수들을 어떤식으로든 로직에 저장을 해야하는데, 변수를 어디다 선언해서 저장하는지 관건이된다
+               //while문 안에 선언한다면 while문 안의 중괄호 안에서만 유효하기에 바깥에서 사용 불가하기 때문에 밖에다 선언함.
+
+                while (true)
+                {
+                    ClassType choice = ChooseClass();
+                    if (choice != ClassType.None)
+                        break;
+                }
+
+
+            }
+        }
+    }
+
