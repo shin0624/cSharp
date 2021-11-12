@@ -1,0 +1,29 @@
+using System;
+
+namespace 디버깅_기초
+{
+    class Program
+    {
+        static void Print(int value)
+        {
+            Console.WriteLine(value);//mmorpg 개발에서 브레이크포인트 사용 예=몬스터가 아주 많을 때 특정 id의 몬스터를 관찰하고 싶을 때 해당하는 id를 조건으로 걸어서 관찰 가능
+        }
+
+        static int AddAndPrint(int a, int b)
+        {
+            int ret = a + b;
+            Print(ret);//값이 이상하여 궁금할 때, 값을 cw로 계속 출력하는것도 가능하지만 이는 계속 코드를 추가하면서 로그를 심는거라 프로그램이 커질수록 부담이된다.
+            return ret;//반면 브레이크포인트를 잡는 것은 별도의 부담이 없으나 개발단계에서만 사용할 수 있는 기법이고, 실제 서비스되고있는 게임의 경우 사용 불가 
+        }
+
+        static void Main(string[] args)
+        {
+            Program.AddAndPrint(5, 20);
+             Program.AddAndPrint(11, 20);
+             Program.AddAndPrint(55, 20);
+            Program.AddAndPrint(10, 40);
+             Program.AddAndPrint(10, 10);
+            Program.AddAndPrint(10, 20);
+        }
+    }
+}
