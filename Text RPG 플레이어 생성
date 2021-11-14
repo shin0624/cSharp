@@ -1,0 +1,102 @@
+using System;
+
+namespace Text_RPG_플레이어_생성
+    {
+
+    class Program
+    {
+        enum ClassType
+        {
+            None = 0,
+            Knight = 1,
+            Archer = 2,
+            Mage = 3
+        }
+
+        static ClassType ChooseClass()
+        {
+
+            Console.WriteLine("직업을 선택하세요!");
+            Console.WriteLine("[1] 기사\n[2] 궁수\n[3] 법사");
+
+            string input = Console.ReadLine();
+            //if (input == "1" || input == "2" || input == "3")-> enum으로 클래스타입 설정 시 OR문 이용은 적절하지않음 IF나 SWITCH이용
+
+            ClassType choice = ClassType.None;
+            switch (input)
+            {
+                case "1":
+                    choice = ClassType.Knight;
+                    break;
+                case "2":
+                    choice = ClassType.Archer;
+                    break;
+                case "3":
+                    choice = ClassType.Mage;
+                    break;
+            }
+            return choice;
+        }//->함수chooseclass를 위에서 한번에 관리할 수 있게 밖으로 빼주었다.
+
+        struct Player //구조체 사용 시 장접ㅁ = 변수를 하나하나 넘기는 것이 아니라 구조체로 선언한  player 하나만 넘기면 됨
+        {
+           public int hp;
+           public int attack;
+          
+        }
+    static void CreatePlayer(ClassType choice, out Player player)
+    {
+           
+        //기사(100/10), 궁수(75/12), 법사(50/15)
+        switch (choice)
+        {
+            case ClassType.Knight:
+                    player.hp = 100;
+                    player.attack = 10;
+                break;
+
+            case ClassType.Archer:
+                    player.hp = 75;
+                    player.attack = 12;
+                break;
+
+            case ClassType.Mage:
+                    player.hp = 50;
+                    player.attack = 15;
+                break;
+
+            default:
+                    player.hp = 0;
+                    player.attack = 0;
+                break;
+        }
+    }
+        static void Main(string[] args)
+        {
+            
+            while (true)
+            {
+                ClassType choice = ChooseClass();
+                if (choice != ClassType.None)
+            {
+                    //캐릭터 생성
+                    Player player;
+               
+                    //이후에 mp, dex 등 여러가지가 추가될 때마다 out을 붙이고 하기가 번거로움->구조체 사용(struct)
+                CreatePlayer(choice, out player);
+
+                Console.WriteLine($"HP{player.hp} Attack{player.attack}");
+
+
+                
+
+
+                //필드로 가서 몬스터랑 싸운다
+            }
+                   
+            }
+
+
+        }
+    }
+}
